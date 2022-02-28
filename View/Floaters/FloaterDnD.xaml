@@ -1,0 +1,10 @@
+﻿<Window x:Class="EpicNum.View.Floaters.FloaterDnD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="57" Width="80"
+        WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
+    
+    <ContentControl Content="{Binding}"
+                    ContentTemplateSelector="{StaticResource NodeTemplateSelector}"
+                    />
+</Window>

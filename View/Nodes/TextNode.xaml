@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="EpicNum.View.Nodes.TextNode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EpicNum.View.Nodes"
+             mc:Ignorable="d" 
+             IsTabStop="False"
+             
+             >
+    <Border x:Name="NodeBackground" Background="{DynamicResource Epic.Colors.BackGround.Normal}" 
+            
+            CornerRadius="10,6,10,10" Margin="0">
+
+        <StackPanel Margin="3,0,3,3" > 
+
+            <DockPanel x:Name="NodeHeader"  FlowDirection="RightToLeft" Margin="0,0,-3,0">
+                <Button x:Name="button_RemoveNode" Width="12" Height="12" 
+                        ToolTip="Izdzēst segmentu"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"  
+                        Style="{DynamicResource NumNodeCloseButtonStyle}" 
+                        Background="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" 
+                        Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="0"
+                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}, Path=DataContext.RemoveNode}"
+                        CommandParameter="{Binding}"
+                        IsTabStop="False"
+                        />
+                
+                <Grid x:Name="NumNodeMoveGrid" Height="13" Cursor="SizeAll" 
+                          Background="#00222933" 
+                          ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <StackPanel Orientation="Horizontal">
+                       
+                        <Ellipse Height="5" Width="5" Fill="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}" Margin="5,0,0,0"/>
+                        <TextBlock Text="T X T" Margin="7,0,0,0" VerticalAlignment="Center" FontFamily="Calibri" FontWeight="Bold" 
+                                   Foreground="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}"
+                                   />
+                        <Ellipse Height="5" Width="5" Fill="{DynamicResource Epic.Colors.Accent.Mix.0.Disabled}" Margin="7,0,5,0"/>
+                        
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+            <Border x:Name="NodeContent" Margin="0"  BorderThickness="2" CornerRadius="7,7,7,7"
+                    BorderBrush="{DynamicResource Epic.Colors.Accent.Mix.0.Normal}" 
+                    Background="{DynamicResource Epic.Colors.BackGround.Variant.0}"
+                    >
+
+                <DockPanel>
+                    <TextBox x:Name="textBox_AdderNumber" 
+                             ToolTip="Segmenta teksts"
+                             Text="{Binding TextStringVM, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{DynamicResource TextBoxStyle1}" 
+                             FontSize="20" Margin="0" BorderBrush="{x:Null}" 
+                             TextAlignment="Right" Background="{x:Null}" 
+                             SelectionBrush="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}" 
+                             CaretBrush="{DynamicResource Epic.Colors.Accent.Mix.0.Selected}" 
+                             Height="36" HorizontalAlignment="Center" VerticalAlignment="Top" Width="60"
+                             GotKeyboardFocus="TextBox_AdderNumber_GotKeyboardFocus"
+                             PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"
+                             >
+
+                        
+                    </TextBox>
+                </DockPanel>
+            </Border>
+        </StackPanel>
+    </Border>
+</UserControl>
